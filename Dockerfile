@@ -7,11 +7,11 @@ COPY ./app /app
 WORKDIR /app
 EXPOSE 8000
 
-RUN DEV=false
+ARG DEV=false
 RUN python -m venv /py && \
     /py/bin/pip install --upgrade pip && \
     /py/bin/pip install -r /tmp/requirements.txt && \
-    if [ $DEV="true"]; \
+    if [  $DEV = "true" ]; \
         then /py/bin/pip install -r /tmp/requirements.dev.txt ; \
     fi && \
     rm -rf /tmp && \
@@ -22,7 +22,7 @@ RUN python -m venv /py && \
 
 ENV PATH="/py/bin:$PATH"
 #this code will update the path environment variable
-RUN chown -R django-user /py
+
 USER django-user 
 
 
