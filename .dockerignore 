@@ -1,0 +1,16 @@
+# it excludes or ignore from the docker image when pushing to some repo
+.git 
+.gitignore
+
+
+# docker
+.docker
+
+# Python
+app/__pycache__/
+app/*/__pycache__/
+app/*/*/__pycache__/
+app/*/*/*/__pycache__/
+.env/
+.venv/
+venv/
